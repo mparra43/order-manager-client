@@ -1,27 +1,14 @@
-# React + TypeScript + Vite
+# Baltimore! 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![image](https://github.com/mparra43/order-manager-client/assets/66500440/121d0fd7-1588-48d6-813f-8a3710f09864)
 
-Currently, two official plugins are available:
+![image](https://github.com/mparra43/order-manager-client/assets/66500440/2bf1582a-2301-4e23-bed0-aba585a087a9)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![image](https://github.com/mparra43/order-manager-client/assets/66500440/b9f514ba-357a-4706-8cf9-4c8317a6d14b)
+![image](https://github.com/mparra43/order-manager-client/assets/66500440/015ad19d-6856-4b4a-81a8-6ebb4c4e63fd)
 
-## Expanding the ESLint configuration
+Para correr el proyecto es necesario instalar nos node modules , agregar el archivo .env y en el las variable de entorno VITE_API_URL
+Con la url de la api, una vez esto se realice podrá  correr en la terminal el comando  npm run dev para levantar el proyecto 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
