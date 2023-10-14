@@ -1,7 +1,9 @@
+import 'react-toastify/dist/ReactToastify.css'
 import { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { AppRoutes } from "./routes";
-import { TransversalProvider } from "./feature/transversal";
+import { ToastContainer } from "react-toastify";
+
 
 function App() {
   return (
@@ -12,11 +14,10 @@ function App() {
         </div>
       }
     >
-      <TransversalProvider>
-        <BrowserRouter>
-          <AppRoutes />
-        </BrowserRouter>
-      </TransversalProvider>
+      <BrowserRouter>
+      <ToastContainer position='top-right' />
+        <AppRoutes />
+      </BrowserRouter>
     </Suspense>
   );
 }

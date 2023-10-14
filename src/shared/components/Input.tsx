@@ -1,14 +1,14 @@
-import { Controller, Control, FieldValues } from "react-hook-form";
+import { Controller, Control, InternalFieldErrors, } from 'react-hook-form';
 import { Rules } from "../types";
 
 interface InputProps {
   className: string;
   classNameContainer: string;
-  control: Control<FieldValues>;
+  control: Control<any>,
   label: string;
   name: string;
   type: string;
-  rules:Rules
+  rules: Rules
 }
 
 export const Input = ({
@@ -19,7 +19,7 @@ export const Input = ({
   name,
   rules,
   type,
-  
+
 }: InputProps) => {
   return (
     <div className={classNameContainer}>
@@ -28,19 +28,25 @@ export const Input = ({
         name={name}
         control={control}
         rules={rules}
-        render={({ field }) => (
-          <input
-            type={type || "text"}
-            className={className || "form-control"}
-            id={field.name}
-            value={field.value}
-            onChange={(e) => field.onChange(e.target.value)}
-          />
+        render={({ field, fieldState }) => (
+          <>
+            <input
+              type={type || "text"}
+              className={className || "form-control"}
+              id={field.name}
+              value={field.value}
+              onChange={(e) => field.onChange(e.target.value)}
+            />
+            {fieldState.error &&
+              <small id="emailHelp" className="form-text text-danger">
+                {fieldState.error.message}
+              </small>
+            }
+
+          </>
         )}
       />
-      {/* <small id="emailHelp" className="form-text text-muted">
-        We'll never share your email with anyone else.
-      </small> */}
+
     </div>
   );
 };

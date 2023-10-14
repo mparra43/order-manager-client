@@ -1,6 +1,4 @@
-import { RouteObject } from 'react-router-dom'
-
-import { lazyImport } from '@/utils/lazyImport'
+import { RouteObject } from 'react-router-dom';
 
 
 

@@ -1,13 +1,12 @@
-import { Controller, Control, FieldValues } from "react-hook-form";
+import { Controller, Control } from "react-hook-form";
 import { Option, Rules } from "../types";
 
 interface SelectProps {
   className: string;
   classNameContainer: string;
-  control: Control<FieldValues>;
+  control: Control<any>;
   label: string;
   name: string;
-  type: string;
   rules: Rules;
   options: Option[];
 }
@@ -28,22 +27,26 @@ export const Select = ({
         name={name}
         control={control}
         rules={rules}
-        render={({ field }) => (
-          <select
-            className={className || "form-control"}
-            id={field.name}
-            value={field.value}
-            onChange={(e:React.ChangeEvent<HTMLSelectElement>) => field.onChange(e.target.value)}
-          >
-            {options.map(({ label, value }) => (
-              <option value={value}>{label}</option>
-            ))}
-          </select>
+        render={({ field, fieldState },) => (
+          <>
+            <select
+              className={className || "form-control"}
+              id={field.name}
+              value={field.value}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => field.onChange(e.target.value)}
+            >
+              {options.map(({ label, value }, index) => (
+                <option key={index} value={value}>{label}</option>
+              ))}
+            </select>
+            {fieldState.error &&
+              <small id="emailHelp" className="form-text text-danger">
+                {fieldState.error.message}
+              </small>
+            }
+          </>
         )}
       />
-      {/* <small id="emailHelp" className="form-text text-muted">
-        We'll never share your email with anyone else.
-      </small> */}
     </div>
   );
 };

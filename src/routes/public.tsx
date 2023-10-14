@@ -5,6 +5,7 @@ import { lazyImport } from '../utils/lazyImport'
 const { TransversalRoutes } = lazyImport(() => import('@/feature/transversal'), 'TransversalRoutes')
 
 
+
 export const publicRoutes: RouteObject[] = [
   {
     path: '/*',
